@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import generateBanquetPDF from '../generateBanquetPDF';
 
 const banquetSets = [
   {
@@ -199,6 +200,20 @@ export default function BanquetPage() {
             {tier.price} MDL
           </button>
         ))}
+        <button
+          className="cat-tab back-tab"
+          onClick={() => generateBanquetPDF({
+            restaurantName: 'OSCAR',
+            banquetSets,
+            priceTiers,
+            sectionLabels,
+            services,
+            lang,
+            accentColor: [184, 148, 95],
+          })}
+        >
+          PDF
+        </button>
         <Link to="/" className="cat-tab back-tab" style={{ textDecoration: 'none' }}>
           {lang === 'ru' ? 'Основное меню' : 'Meniul principal'}
         </Link>
