@@ -51,8 +51,7 @@ export default function generateBanquetPDF({ restaurantName, banquetSets, priceT
     });
   });
 
-  const printWindow = window.open('', '_blank');
-  printWindow.document.write(`<!DOCTYPE html>
+  const fullHtml = `<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -257,6 +256,10 @@ export default function generateBanquetPDF({ restaurantName, banquetSets, priceT
 
   <div class="footer">${restaurantName} &mdash; ${lang === 'ru' ? 'Банкетное меню' : 'Menu Banchet'}</div>
 </body>
-</html>`);
-  printWindow.document.close();
+</html>`;
+
+  const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const printWindow = window.open(url, '_blank');
+  printWindow.onafterprint = () => URL.revokeObjectURL(url);
 }

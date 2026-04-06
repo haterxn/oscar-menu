@@ -209,7 +209,7 @@ export default function BanquetPage() {
             sectionLabels,
             services,
             lang,
-            accentColor: [184, 148, 95],
+            accentColor: '#B8945F',
           })}
         >
           PDF
