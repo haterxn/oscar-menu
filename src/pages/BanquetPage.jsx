@@ -66,9 +66,9 @@ const sectionLabels = {
 };
 
 const sectionIcons = {
-  cold: '❄',
-  hot: '🔥',
-  dessert: '🍰',
+  cold: '',
+  hot: '',
+  dessert: '',
 };
 
 // Photo mapping for banquet dishes (RU name -> filename)
